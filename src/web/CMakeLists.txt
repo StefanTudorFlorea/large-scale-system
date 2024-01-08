@@ -3,9 +3,7 @@ set(SERVICE_ID web)
 
 # crud-service
 add_executable(${SERVICE_ID}
-    src/main.cpp 
-    src/ServiceWebAgent.hpp
-    src/ServiceWebImpl.hpp
+    src/web.cpp 
 )
 
 # dependencies

@@ -3,6 +3,9 @@ info:
   version: "4.0.0"
   environment: "Development"
 
+web:
+  port: 8080
+
 endpoints:
   serviceOne: http://localhost:8001
   serviceTwo: http://localhost:8002
