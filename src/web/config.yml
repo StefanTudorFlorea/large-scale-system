@@ -7,6 +7,4 @@ web:
   port: 8080
 
 endpoints:
-  serviceOne: http://localhost:8001
-  serviceTwo: http://localhost:8002
-  serviceTre: http://localhost:8003
+  gateway: http://localhost:80

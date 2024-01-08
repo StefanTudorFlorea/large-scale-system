@@ -13,8 +13,6 @@ std::string queryService(const std::string& endpoint) {
     httplib::Client client{endpoint};
     std::string response;
 
-    fmt::print("\nService endpoint:", endpoint);
-
     if (auto res = client.Get("/")) {
         if (res->status == 200) {
             response = res->body;
@@ -28,11 +26,13 @@ std::string queryService(const std::string& endpoint) {
 }
 
 std::string getServices() {
-    YAML::Node config = YAML::LoadFile("config.yml");;
+    YAML::Node config = YAML::LoadFile("config.yml");
 
-    std::string serviceOneEndpoint = utils::getEnvVarOrVal("web.serviceOne.endpoint", config["endpoints"]["serviceOne"].as<std::string>());
-    std::string serviceTwoEndpoint = utils::getEnvVarOrVal("web.serviceTwo.endpoint", config["endpoints"]["serviceTwo"].as<std::string>());
-    std::string serviceTreEndpoint = utils::getEnvVarOrVal("web.serviceTre.endpoint", config["endpoints"]["serviceTre"].as<std::string>());
+    std::string gatewayEndpoint = utils::getEnvVarOrVal("web.gateway.endpoint", config["endpoints"]["gateway"].as<std::string>());
+
+    std::string serviceOneEndpoint = gatewayEndpoint + "/serviceOne";
+    std::string serviceTwoEndpoint = gatewayEndpoint + "/serviceTwo";
+    std::string serviceTreEndpoint = gatewayEndpoint + "/serviceTre";
 
     return fmt::format("ServiceOne: {}\nServiceTwo: {}\nServiceTre: {}\n", 
         queryService(serviceOneEndpoint), 
