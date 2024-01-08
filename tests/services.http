@@ -1,15 +1,16 @@
 # Configuration
 @ServiceOne = http://localhost:8001
 @ServiceTwo = http://localhost:8002
-@ServiceThree = http://localhost:8003
+@ServiceTre = http://localhost:8003
 
+GET http://localhost:80/serviceOne
 
 ### Main
 GET {{ServiceOne}}
 ### Main
 GET {{ServiceTwo}}
 ### Main
-GET {{ServiceThree}}
+GET {{ServiceTre}}
 
 
 ### Health
@@ -17,11 +18,11 @@ GET {{ServiceOne}}/health
 ### Health
 GET {{ServiceTwo}}/health
 ### Health
-GET {{ServiceThree}}/health
+GET {{ServiceTre}}/health
 
 ### Info
 GET {{ServiceOne}}/info
 ### Info
 GET {{ServiceTwo}}/info
 ### Info
-GET {{ServiceThree}}/info
+GET {{ServiceTre}}/info

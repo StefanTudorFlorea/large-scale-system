@@ -4,25 +4,21 @@
 // deps
 #include <crow.h>
 #include <fmt/core.h>
-#include <httplib.h>
+#include <cpr/cpr.h>
 #include <string>
+#include <iostream>
 #include <yaml-cpp/yaml.h>
+
 
 std::string queryService(const std::string& endpoint) {
 
-    httplib::Client client{endpoint};
-    std::string response;
-
-    if (auto res = client.Get("/")) {
-        if (res->status == 200) {
-            response = res->body;
-        }
+    cpr::Response r = cpr::Get(cpr::Url{endpoint});
+    
+    if (r.status_code != 200) {
+        return "NOT_OK";
     } else {
-        auto err = res.error();
-        response = httplib::to_string(err);
-  }
-
-  return response;
+        return "OK";
+    }
 }
 
 std::string getServices() {

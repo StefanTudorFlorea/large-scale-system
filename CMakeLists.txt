@@ -12,7 +12,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 find_package(Crow     CONFIG REQUIRED)
 find_package(fmt      CONFIG REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
-find_package(httplib  CONFIG REQUIRED)
+find_package(cpr      CONFIG REQUIRED)
 
 # services
 add_subdirectory("src/common")

@@ -9,11 +9,11 @@ add_executable(${SERVICE_ID}
 # dependencies
 target_link_libraries(${SERVICE_ID}
     PRIVATE
-        common 
+        common
+        cpr::cpr 
         Crow::Crow
         fmt::fmt-header-only 
         yaml-cpp::yaml-cpp
-        httplib::httplib
 )
 
 # the services is found under bin/service-one/

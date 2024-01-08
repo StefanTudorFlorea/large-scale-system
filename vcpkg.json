@@ -5,6 +5,6 @@
       "crow",
       "fmt",
       "yaml-cpp",
-      "cpp-httplib"
+      "cpr"
     ]
 }
