@@ -2,3 +2,8 @@ info:
   name: "ServiceWeb"
   version: "4.0.0"
   environment: "Development"
+
+endpoints:
+  serviceOne: http://localhost:8001
+  serviceTwo: http://localhost:8002
+  serviceThree: http://localhost:8003

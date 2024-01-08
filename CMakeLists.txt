@@ -15,6 +15,7 @@ find_package(yaml-cpp CONFIG REQUIRED)
 find_package(httplib  CONFIG REQUIRED)
 
 # services
+add_subdirectory("src/common")
 add_subdirectory("src/serviceOne")
 add_subdirectory("src/serviceTwo")
 add_subdirectory("src/serviceThree")

@@ -10,7 +10,8 @@ add_executable(${SERVICE_ID}
 
 # dependencies
 target_link_libraries(${SERVICE_ID}
-    PRIVATE 
+    PRIVATE
+        common 
         Crow::Crow
         fmt::fmt-header-only 
         yaml-cpp::yaml-cpp
