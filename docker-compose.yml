@@ -8,6 +8,32 @@ services:
         dockerfile: services.Dockerfile
     image: sfl/large-scale-system
 
+  lb:
+    container_name: lb
+    build:
+        context: docker/
+        dockerfile: lb.Dockerfile
+    env_file: .env
+    ports:
+      - 80
+      - 8080:80
+
+  web-1:
+    container_name: web-1
+    image: sfl/large-scale-system
+    command: web
+    env_file: .env
+    ports:
+      - 8080
+  web-2:
+    container_name: web-2
+    image: sfl/large-scale-system
+    command: web
+    env_file: .env
+    ports:
+      - 8080
+
+
   gateway:
     container_name: gateway
     build:
@@ -15,17 +41,7 @@ services:
         dockerfile: gateway.Dockerfile
     env_file: .env
     ports:
-      - 80:80
-
-  web:
-    container_name: web
-    image: sfl/large-scale-system
-    command: web
-    env_file: .env
-    ports:
-      - 8080:8080
-    depends_on:
-      - gateway
+      - 80
 
   serviceOne:
     container_name: serviceOne
@@ -33,7 +49,7 @@ services:
     command: serviceOne
     env_file: .env
     ports:
-      - 8001:8080
+      - 8080
 
   serviceTwo:
     container_name: serviceTwo
@@ -41,7 +57,7 @@ services:
     command: serviceTwo
     env_file: .env
     ports:
-      - 8002:8080
+      - 8080
 
   serviceTre:
     container_name: serviceTre
@@ -49,4 +65,4 @@ services:
     command: serviceTre
     env_file: .env
     ports:
-      - 8003:8080
+      - 8080
