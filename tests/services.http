@@ -1,0 +1,27 @@
+# Configuration
+@ServiceOne = http://localhost:8001
+@ServiceTwo = http://localhost:8002
+@ServiceThree = http://localhost:8003
+
+
+### Main
+GET {{ServiceOne}}
+### Main
+GET {{ServiceTwo}}
+### Main
+GET {{ServiceThree}}
+
+
+### Health
+GET {{ServiceOne}}/health
+### Health
+GET {{ServiceTwo}}/health
+### Health
+GET {{ServiceThree}}/health
+
+### Info
+GET {{ServiceOne}}/info
+### Info
+GET {{ServiceTwo}}/info
+### Info
+GET {{ServiceThree}}/info

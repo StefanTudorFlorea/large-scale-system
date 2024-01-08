@@ -1,0 +1,10 @@
+{
+    "name": "large-scale-system",
+    "version": "1.0",
+    "dependencies": [
+      "crow",
+      "fmt",
+      "yaml-cpp",
+      "cpp-httplib"
+    ]
+}

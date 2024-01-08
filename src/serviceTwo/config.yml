@@ -1,0 +1,4 @@
+info:
+  name: "ServiceTwo"
+  version: "2.0.0"
+  environment: "Development"
