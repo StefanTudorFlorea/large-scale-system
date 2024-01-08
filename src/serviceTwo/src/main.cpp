@@ -10,5 +10,5 @@ int main() {
 
     ServiceTwoAgent serviceAgent{app};
 
-    app.port(std::stoi(getenv("ServiceTwo.port"))).multithreaded().run();
+    app.port(std::stoi(getenv("serviceTwo.port"))).multithreaded().run();
 }

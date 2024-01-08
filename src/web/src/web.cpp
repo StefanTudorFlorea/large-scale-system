@@ -13,6 +13,8 @@ std::string queryService(const std::string& endpoint) {
     httplib::Client client{endpoint};
     std::string response;
 
+    fmt::print("\nService endpoint:", endpoint);
+
     if (auto res = client.Get("/")) {
         if (res->status == 200) {
             response = res->body;
@@ -36,12 +38,12 @@ std::string getServices() {
         queryService(serviceOneEndpoint), 
         queryService(serviceTwoEndpoint),
         queryService(serviceThreeEndpoint)
-        );
+    );
 }
 
 int main() {
     crow::SimpleApp app;
-    YAML::Node config = YAML::LoadFile("config.yml");;
+    YAML::Node config = YAML::LoadFile("config.yml");
 
     CROW_ROUTE(app, "/")([](){
         return getServices();
