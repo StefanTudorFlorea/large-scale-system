@@ -1,6 +1,7 @@
 services:
 
   microservices:
+    container_name: microservices
     command: bash
     build:
         context: .
@@ -8,6 +9,7 @@ services:
     image: sfl/large-scale-system
 
   web:
+    container_name: web
     image: sfl/large-scale-system
     command: web
     env_file: .env
@@ -15,6 +17,7 @@ services:
       - 8080:8080
 
   serviceOne:
+    container_name: serviceOne
     image: sfl/large-scale-system
     command: serviceOne
     env_file: .env
@@ -22,6 +25,7 @@ services:
       - 8001:8080
 
   serviceTwo:
+    container_name: serviceTwo
     image: sfl/large-scale-system
     command: serviceTwo
     env_file: .env
@@ -29,6 +33,7 @@ services:
       - 8002:8080
 
   serviceTre:
+    container_name: serviceTre
     image: sfl/large-scale-system
     command: serviceTre
     env_file: .env
