@@ -5,7 +5,7 @@ services:
     command: bash
     build:
         context: .
-        dockerfile: Dockerfile
+        dockerfile: services.Dockerfile
     image: sfl/large-scale-system
 
   web:

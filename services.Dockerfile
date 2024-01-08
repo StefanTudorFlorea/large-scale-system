@@ -34,7 +34,7 @@ FROM ubuntu:latest as runtime
 # copy results from build phase
 WORKDIR /app
 COPY --from=build /app/build/bin /app
-COPY docker-entry.sh .
+COPY docker/services/docker-entry.sh .
 
 # start application
 EXPOSE 8001 8002
