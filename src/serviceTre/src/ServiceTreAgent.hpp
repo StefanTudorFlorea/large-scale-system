@@ -1,15 +1,15 @@
 #pragma once
 
 // service
-#include "ServiceThreeImpl.hpp"
+#include "ServiceTreImpl.hpp"
 
 // deps
 #include <crow.h>
 
 
-class ServiceThreeAgent {
+class ServiceTreAgent {
 public:
-    ServiceThreeAgent(crow::SimpleApp& app) : _app{app} {
+    ServiceTreAgent(crow::SimpleApp& app) : _app{app} {
 
         CROW_ROUTE(app, "/")([this](){
             return _impl.index();
@@ -25,5 +25,5 @@ public:
     }
 private:
     crow::SimpleApp& _app;
-    ServiceThreeImpl _impl;
+    ServiceTreImpl _impl;
 };

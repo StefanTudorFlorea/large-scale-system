@@ -32,12 +32,12 @@ std::string getServices() {
 
     std::string serviceOneEndpoint = utils::getEnvVarOrVal("web.serviceOne.endpoint", config["endpoints"]["serviceOne"].as<std::string>());
     std::string serviceTwoEndpoint = utils::getEnvVarOrVal("web.serviceTwo.endpoint", config["endpoints"]["serviceTwo"].as<std::string>());
-    std::string serviceThreeEndpoint = utils::getEnvVarOrVal("web.serviceThree.endpoint", config["endpoints"]["serviceThree"].as<std::string>());
+    std::string serviceTreEndpoint = utils::getEnvVarOrVal("web.serviceTre.endpoint", config["endpoints"]["serviceTre"].as<std::string>());
 
-    return fmt::format("ServiceOne: {}\nServiceTwo: {}\nServiceThree: {}\n", 
+    return fmt::format("ServiceOne: {}\nServiceTwo: {}\nServiceTre: {}\n", 
         queryService(serviceOneEndpoint), 
         queryService(serviceTwoEndpoint),
-        queryService(serviceThreeEndpoint)
+        queryService(serviceTreEndpoint)
     );
 }
 

@@ -1,11 +1,11 @@
 # config
-set(SERVICE_ID serviceThree)
+set(SERVICE_ID serviceTre)
 
 # crud-service
 add_executable(${SERVICE_ID}
     src/main.cpp 
-    src/ServiceThreeAgent.hpp
-    src/ServiceThreeImpl.hpp
+    src/ServiceTreAgent.hpp
+    src/ServiceTreImpl.hpp
 )
 
 # dependencies

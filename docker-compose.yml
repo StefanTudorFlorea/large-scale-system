@@ -28,9 +28,9 @@ services:
     ports:
       - 8002:8080
 
-  serviceThree:
+  serviceTre:
     image: sfl/large-scale-system
-    command: serviceThree
+    command: serviceTre
     env_file: .env
     ports:
       - 8003:8080

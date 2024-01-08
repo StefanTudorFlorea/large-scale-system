@@ -1,5 +1,5 @@
 info:
-  name: "ServiceWeb"
+  name: "Web"
   version: "4.0.0"
   environment: "Development"
 
@@ -9,4 +9,4 @@ web:
 endpoints:
   serviceOne: http://localhost:8001
   serviceTwo: http://localhost:8002
-  serviceThree: http://localhost:8003
+  serviceTre: http://localhost:8003

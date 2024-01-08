@@ -2,9 +2,9 @@
 #include <crow.h>
 #include <yaml-cpp/yaml.h>
 
-class ServiceThreeImpl {
+class ServiceTreImpl {
 public:
-    ServiceThreeImpl() {
+    ServiceTreImpl() {
         _config = YAML::LoadFile("config.yml");
     }
 
