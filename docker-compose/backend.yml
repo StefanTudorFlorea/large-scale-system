@@ -1,0 +1,28 @@
+services:
+
+  serviceOne:
+    image: sfl/large-scale-system
+    command: serviceOne
+    env_file: .env
+    expose: 
+      - 8080
+    networks:
+      - large-scale-system
+
+  serviceTwo:
+    image: sfl/large-scale-system
+    command: serviceTwo
+    env_file: .env
+    expose: 
+      - 8080
+    networks: 
+      - large-scale-system
+
+  serviceTre:
+    image: sfl/large-scale-system
+    command: serviceTre
+    env_file: .env
+    expose:
+      - 8080
+    networks:
+      - large-scale-system

@@ -1,0 +1,11 @@
+volumes:
+  persistent-data:
+    driver: local
+
+networks:
+  large-scale-system:
+
+services:
+  build-microservices:
+    build: ../
+    image: sfl/large-scale-system

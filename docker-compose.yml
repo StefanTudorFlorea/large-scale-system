@@ -1,7 +1,3 @@
-volumes:
-  persistent-data:
-    driver: local
-
 services:
 
   microservices:
