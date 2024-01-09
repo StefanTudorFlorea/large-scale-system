@@ -1,7 +1,7 @@
 services:
 
   lb:
-    build: ../docker/lb
+    build: ../lb
     env_file: .env
     expose:
       - 80

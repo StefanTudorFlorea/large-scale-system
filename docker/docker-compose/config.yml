@@ -8,5 +8,5 @@ networks:
 
 services:
   build-microservices:
-    build: ../
+    build: ../../
     image: sfl/large-scale-system

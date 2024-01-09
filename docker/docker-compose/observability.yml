@@ -3,7 +3,7 @@ services:
   fluentd:
     image: fluentd:latest
     volumes:
-      - ./../docker/fluentd:/fluentd/etc/
+      - ./../fluentd:/fluentd/etc/
     expose:
       - 24224
     ports:

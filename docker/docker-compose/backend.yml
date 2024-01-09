@@ -1,7 +1,7 @@
 services:
 
   gateway:
-    build: ../docker/gateway
+    build: ../gateway
     env_file: .env
     expose:
       - 80
