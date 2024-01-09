@@ -1,5 +1,19 @@
 services:
 
+  elasticsearch:
+    image: elasticsearch:7.13.2
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    expose:
+      - 9200
+    ports:
+      - 9200:9200
+    networks:
+      - large-scale-system
+    volumes:
+      - persistent-data:/usr/share/elasticsearch/data
+
   fluentd:
     image: fluentd:latest
     volumes:
@@ -8,5 +22,20 @@ services:
       - 24224
     ports:
       - 24224:24224
+    depends_on:
+      - elasticsearch
     networks:
       - large-scale-system
+
+  kibana:
+    image: kibana:7.13.2
+    expose:
+      - 5601
+    ports:
+      - 5601:5601
+    networks:
+      - large-scale-system
+    environment:
+      - ELASTICSEARCH_HOSTS="http://elasticsearch:9200"
+    depends_on:
+      - elasticsearch
