@@ -7,6 +7,13 @@ services:
       - 80
     networks:
       - large-scale-system
+    depends_on:
+      - fluentd
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: serviceOne
 
   serviceOne:
     image: sfl/large-scale-system
@@ -16,6 +23,13 @@ services:
       - 8080
     networks:
       - large-scale-system
+    depends_on:
+      - fluentd
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: serviceOne
 
   serviceTwo:
     image: sfl/large-scale-system
@@ -25,6 +39,13 @@ services:
       - 8080
     networks: 
       - large-scale-system
+    depends_on:
+      - fluentd
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: serviceTwo
 
   serviceTre:
     image: sfl/large-scale-system
@@ -34,3 +55,10 @@ services:
       - 8080
     networks:
       - large-scale-system
+    depends_on:
+      - fluentd
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: serviceTre
