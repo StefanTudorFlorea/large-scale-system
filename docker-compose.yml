@@ -1,68 +1,75 @@
+volumes:
+  persistent-data:
+    driver: local
+
 services:
 
   microservices:
-    container_name: microservices
-    command: bash
-    build:
-        context: .
-        dockerfile: services.Dockerfile
+    build: .
     image: sfl/large-scale-system
+
+  fluentd:
+    image: fluentd:latest
+    volumes:
+      - ./docker/fluentd:/fluentd/etc/
+    expose: [24224]
+    ports: [24224:24224]
 
   lb:
-    container_name: lb
-    build:
-        context: docker/
-        dockerfile: lb.Dockerfile
+    build: docker/lb
     env_file: .env
-    ports:
-      - 80
-      - 8080:80
+    expose: [80]
+    ports: [8080:80]
+    depends_on: [fluentd]
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: lb
 
   web-1:
-    container_name: web-1
     image: sfl/large-scale-system
     command: web
     env_file: .env
-    ports:
-      - 8080
-  web-2:
-    container_name: web-2
-    image: sfl/large-scale-system
-    command: web
-    env_file: .env
-    ports:
-      - 8080
+    expose: [8080]
+    depends_on: [fluentd]
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: web-1
 
+  web-2:
+    image: sfl/large-scale-system
+    command: web
+    env_file: .env
+    expose: [8080]
+    depends_on: [fluentd]
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: web-2
 
   gateway:
-    container_name: gateway
-    build:
-        context: docker/
-        dockerfile: gateway.Dockerfile
+    build: docker/gateway
     env_file: .env
-    ports:
-      - 80
+    expose: [80]
 
   serviceOne:
-    container_name: serviceOne
     image: sfl/large-scale-system
     command: serviceOne
     env_file: .env
-    ports:
-      - 8080
+    expose: [8080]
 
   serviceTwo:
-    container_name: serviceTwo
     image: sfl/large-scale-system
     command: serviceTwo
     env_file: .env
-    ports:
-      - 8080
+    expose: [8080]
 
   serviceTre:
-    container_name: serviceTre
     image: sfl/large-scale-system
     command: serviceTre
     env_file: .env
-    ports:
-      - 8080
+    expose: [8080]
