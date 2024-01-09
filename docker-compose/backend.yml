@@ -1,5 +1,13 @@
 services:
 
+  gateway:
+    build: ../docker/gateway
+    env_file: .env
+    expose:
+      - 80
+    networks:
+      - large-scale-system
+
   serviceOne:
     image: sfl/large-scale-system
     command: serviceOne

@@ -4,6 +4,7 @@ volumes:
 
 networks:
   large-scale-system:
+    driver: bridge
 
 services:
   build-microservices:
